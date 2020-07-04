@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+spec:
+  selector:
+    matchLabels:
+      run: kibana
+  template:
+    metadata:
+      labels:
+          run: kibana
+    spec:
+      containers:
+      - name: kibana-container
+        image: 501545346340.dkr.ecr.us-east-1.amazonaws.com/kibana
+        ports:
+        - containerPort: 5601
+          hostPort: 5601
